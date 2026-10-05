@@ -1,5 +1,12 @@
-// Punto de entrada: solo arranca el servidor
 const { PORT } = require("./src/config");
 const app = require("./src/app");
 
-app.listen(PORT, () => console.log(`JIMTV listo en http://localhost:${PORT}`));
+// Vercel utiliza la aplicación como función serverless.
+module.exports = app;
+
+// Para ejecutar localmente con npm start.
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`JIMTV listo en http://localhost:${PORT}`);
+  });
+}
