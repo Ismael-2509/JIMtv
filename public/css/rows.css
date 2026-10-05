@@ -1,0 +1,28 @@
+main{padding:0 48px 80px}
+.row{margin-top:30px}
+.row h2{font-size:20px;font-weight:700;margin-bottom:12px}
+.rail{position:relative}
+.scroll{display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x proximity;padding:4px 0 10px;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.arr{position:absolute;top:35%;z-index:5;width:40px;height:40px;border-radius:50%;background:#000b;font-size:22px;opacity:0;transition:.2s}
+.rail:hover .arr{opacity:1}.arr.l{left:-20px}.arr.r{right:-20px}
+.card{position:relative;flex:0 0 180px;scroll-snap-align:start;cursor:pointer;transition:transform .2s}
+.card:hover{transform:scale(1.04)}
+.card .p{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;background:var(--card);display:block}
+.card .rank{position:absolute;top:2px;left:10px;font-size:68px;font-weight:800;line-height:1;color:#fff;text-shadow:0 2px 12px #000c;z-index:2;pointer-events:none}
+.card.top::before{content:"";position:absolute;inset:0 0 40% 0;background:linear-gradient(#000a,#0000);border-radius:10px;z-index:1;pointer-events:none}
+.card .t{font-size:13px;margin-top:8px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .bar{position:absolute;left:8px;right:8px;bottom:36px;height:4px;background:#fff4;border-radius:2px;z-index:2}
+.card .bar i{display:block;height:100%;background:#fff;border-radius:2px}
+.card .tag{position:absolute;left:8px;bottom:46px;z-index:2;font-size:11px;font-weight:700;text-shadow:0 1px 4px #000}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}
+.grid .card{flex:none}
+.hide{display:none!important}
+
+.rh{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+.rh h2{margin-bottom:0}
+.clear{color:var(--mut);font-size:13px;font-weight:600}
+.clear:hover{color:var(--tx)}
+.card .rm{position:absolute;top:6px;right:6px;z-index:3;width:28px;height:28px;border-radius:50%;background:#000b;font-size:13px;opacity:0;transition:.2s}
+.card:hover .rm,.card .rm:focus-visible{opacity:1}
+@media(hover:none){.card .rm{opacity:1}}

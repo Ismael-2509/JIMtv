@@ -1,0 +1,5 @@
+.actions{display:flex;gap:12px;margin-top:20px}
+.btn{background:#fff;color:#000;border-radius:999px;padding:12px 26px;font-weight:600}
+.btn:hover{background:#e5e5e5}
+.circ{width:44px;height:44px;border-radius:50%;background:#3a3b40cc;font-size:22px;line-height:1}
+.circ.on{background:#fff;color:#000}

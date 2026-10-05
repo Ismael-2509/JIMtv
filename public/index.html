@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JIMTV</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/buttons.css">
+<link rel="stylesheet" href="css/rows.css">
+<link rel="stylesheet" href="css/modal.css">
+<link rel="stylesheet" href="css/toast.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<nav><div class="brand">JIM<span>TV</span></div><input id="q" type="search" placeholder="Buscar" autocomplete="off"></nav>
+
+<header class="hero" id="hero"></header>
+<main>
+  <section id="search" class="row hide"><h2>Resultados</h2><div class="grid" id="sgrid"></div></section>
+  <div id="rows">
+    <section class="row hide" id="cont"><div class="rh"><h2>Continuar viendo</h2><button class="clear" id="contClear">Borrar todo</button></div><div class="rail"><button class="arr l">‹</button><div class="scroll" id="contS"></div><button class="arr r">›</button></div></section>
+    <section class="row hide" id="list"><h2>Mi lista</h2><div class="rail"><button class="arr l">‹</button><div class="scroll" id="listS"></div><button class="arr r">›</button></div></section>
+    <section class="row"><h2>Top 10: series</h2><div class="rail"><button class="arr l">‹</button><div class="scroll" id="topS"></div><button class="arr r">›</button></div></section>
+    <section class="row"><h2>Top 10: películas</h2><div class="rail"><button class="arr l">‹</button><div class="scroll" id="topM"></div><button class="arr r">›</button></div></section>
+    <section class="row"><h2>Tendencias de la semana</h2><div class="rail"><button class="arr l">‹</button><div class="scroll" id="trend"></div><button class="arr r">›</button></div></section>
+  </div>
+</main>
+
+<div id="modal"><div class="box">
+  <button class="x" id="close" aria-label="Cerrar">✕</button>
+  <div class="mh"><h3 id="mt"></h3></div>
+  <div class="modal-controls">
+    <div class="tabs">
+      <button class="tab" data-t="player">▶ Reproductor</button>
+      <button class="tab" data-t="info">Detalles e Información</button>
+    </div>
+    <div class="lang-selector">
+      <label for="langSel">Idioma:</label>
+      <select id="langSel">
+        <option value="latino">Latino</option>
+        <option value="castellano">Castellano</option>
+        <option value="subtitulado">Subtitulado</option>
+      </select>
+    </div>
+  </div>
+  <div class="pane" id="pane"></div>
+</div></div>
+<div id="toast"></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

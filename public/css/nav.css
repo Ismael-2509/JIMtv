@@ -1,0 +1,4 @@
+nav{position:fixed;top:0;left:0;right:0;z-index:20;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:linear-gradient(#000c,#0000)}
+.brand{font-weight:800;font-size:20px;letter-spacing:.5px}.brand span{color:var(--mut);font-weight:600}
+#q{background:#000a;border:1px solid var(--line);color:var(--tx);border-radius:8px;padding:8px 14px;width:240px;outline:0}
+#q:focus{border-color:#fff8}
