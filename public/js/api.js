@@ -1,3 +1,21 @@
-const api = async (u) => { const r = await fetch(u); if (!r.ok) throw new Error(r.status); return r.json(); };
+const api = async (url) => {
+  console.log("JIMTV API:", url);
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    const text = await response.text().catch(() => "");
+
+    throw new Error(
+      `${url} → HTTP ${response.status} ${response.statusText} ${text}`
+    );
+  }
+
+  const data = await response.json();
+
+  console.log("JIMTV API respuesta:", url, data);
+
+  return data;
+};
 
 export { api };
