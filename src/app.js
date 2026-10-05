@@ -4,13 +4,12 @@ const path = require("path");
 
 const app = express();
 
-// Credenciales de acceso
 const USERS = {
   admin: "clave123",
   amigo: "clave123"
 };
 
-// Autenticación básica
+// Autenticación
 app.use(
   basicAuth({
     users: USERS,
@@ -19,11 +18,11 @@ app.use(
   })
 );
 
-// Rutas de la API
+// API
 const apiRoutes = require("./routes");
 app.use("/api", apiRoutes);
 
-// Archivos públicos
+// Archivos del frontend
 app.use(express.static(path.join(__dirname, "../public")));
 
 module.exports = app;

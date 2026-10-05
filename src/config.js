@@ -5,4 +5,9 @@ const PORT = process.env.PORT || 3000;
 const REGION = "MX";
 const LANG = "es-MX";
 
-module.exports = { KEY, PORT, REGION, LANG };
+module.exports = {
+  KEY,
+  PORT,
+  REGION,
+  LANG
+};
