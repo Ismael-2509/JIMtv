@@ -8,6 +8,7 @@ async function fetchFromTMDB(endpoint, params = {}) {
   }
 
   const url = new URL(`${BASE_URL}${endpoint}`);
+
   url.searchParams.set("api_key", KEY);
   url.searchParams.set("language", LANG || "es-MX");
   url.searchParams.set("region", REGION || "MX");
@@ -17,12 +18,17 @@ async function fetchFromTMDB(endpoint, params = {}) {
   });
 
   const response = await fetch(url.toString());
+
   if (!response.ok) {
-    throw new Error(`Error TMDB: ${response.status} ${response.statusText}`);
+    throw new Error(
+      `Error TMDB: ${response.status} ${response.statusText}`
+    );
   }
+
   return await response.json();
 }
 
 module.exports = {
+  tmdb: fetchFromTMDB,
   fetchFromTMDB
 };

@@ -4,26 +4,26 @@ const path = require("path");
 
 const app = express();
 
-// Configura las credenciales de acceso para ti y tu grupo
+// Credenciales de acceso
 const USERS = {
-  admin: "clave123", // usuario: contraseña
+  admin: "clave123",
   amigo: "clave123"
 };
 
-// Aplicar autenticación básica antes de las rutas y estáticos
+// Autenticación básica
 app.use(
   basicAuth({
     users: USERS,
-    challenge: true, // Despliega la ventana flotante del navegador
+    challenge: true,
     realm: "JIMTV Private Area"
   })
 );
 
-// Servir la carpeta pública
-app.use(express.static(path.join(__dirname, "../public")));
+// Rutas de la API
+const apiRoutes = require("./routes");
+app.use("/api", apiRoutes);
 
-// Si tienes rutas de API dentro de src/ (ejemplo: router de Express), se incluyen aquí:
-// const apiRoutes = require("./routes");
-// app.use("/api", apiRoutes);
+// Archivos públicos
+app.use(express.static(path.join(__dirname, "../public")));
 
 module.exports = app;
