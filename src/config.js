@@ -1,6 +1,7 @@
 require("dotenv").config();
 
-const KEY = process.env.TMDB_API_KEY;
+// Opción B: API Key asignada directamente para evitar problemas con .env en Vercel
+const KEY = "03322d95cb652e0d6bf7d9014421e5e7";
 const PORT = process.env.PORT || 3000;
 const REGION = "MX";
 const LANG = "es-MX";
