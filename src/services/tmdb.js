@@ -1,19 +1,28 @@
-const fetch = require("node-fetch");
-const { KEY, LANG } = require("../config");
+const { KEY, REGION, LANG } = require("../config");
 
-// Llamada genérica a TMDb (la clave nunca llega al navegador)
-async function tmdb(endpoint, params = {}) {
-  const url = new URL("https://api.themoviedb.org/3" + endpoint);
-  url.searchParams.set("api_key", KEY);
-  url.searchParams.set("language", params.language || LANG);
-  Object.entries(params).forEach(([k, v]) => k !== "language" && v != null && url.searchParams.set(k, v));
-  const r = await fetch(url.toString());
-  if (!r.ok) {
-    const e = new Error("TMDb respondió " + r.status);
-    e.status = r.status;
-    throw e;
+const BASE_URL = "https://api.themoviedb.org/3";
+
+async function fetchFromTMDB(endpoint, params = {}) {
+  if (!KEY) {
+    throw new Error("Falta TMDB_API_KEY en las variables de entorno.");
   }
-  return r.json();
+
+  const url = new URL(`${BASE_URL}${endpoint}`);
+  url.searchParams.set("api_key", KEY);
+  url.searchParams.set("language", LANG || "es-MX");
+  url.searchParams.set("region", REGION || "MX");
+
+  Object.keys(params).forEach((key) => {
+    url.searchParams.set(key, params[key]);
+  });
+
+  const response = await fetch(url.toString());
+  if (!response.ok) {
+    throw new Error(`Error TMDB: ${response.status} ${response.statusText}`);
+  }
+  return await response.json();
 }
 
-module.exports = { tmdb };
+module.exports = {
+  fetchFromTMDB
+};
