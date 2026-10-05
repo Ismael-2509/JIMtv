@@ -6,7 +6,7 @@ const app = express();
 
 // Configura las credenciales de acceso para ti y tu grupo
 const USERS = {
-  admin: "jimtv2026", // usuario: contraseña
+  admin: "clave123", // usuario: contraseña
   amigo: "clave123"
 };
 
