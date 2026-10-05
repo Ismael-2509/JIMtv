@@ -47,7 +47,7 @@ function tabPlayer() {
       embedUrl = `https://vidsrc.su/embed/tv/${cur.id}/${cur.season}/${cur.episode}`;
     }
   } else {
-    // Servidor en Inglés (vidsrc.me funcional en localhost)
+    // Servidor en Inglés
     if (cur.type === "movie") {
       embedUrl = `https://vidsrc.me/embed/movie?tmdb=${cur.id}`;
     } else {
@@ -56,10 +56,10 @@ function tabPlayer() {
   }
 
   pane.innerHTML = `<div class="vid">
-    <iframe 
-      src="${embedUrl}" 
-      allowfullscreen 
-      allow="autoplay; encrypted-media; picture-in-picture" 
+    <iframe
+      src="${embedUrl}"
+      allowfullscreen
+      allow="autoplay; encrypted-media; picture-in-picture"
       frameborder="0"
       style="width:100%;height:100%;border:none;">
     </iframe>

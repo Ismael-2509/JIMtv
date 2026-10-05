@@ -19,7 +19,7 @@ async function renderHero(raw) {
     <div class="meta"><span class="badge">4K</span><span class="badge">Dolby Atmos</span><span class="badge">15+</span></div>
     <p class="syn">${esc(it.overview)}</p>
     <div class="actions"><button class="btn" id="hPlay">▶ Reproducir</button><button class="circ" id="hAdd" title="Añadir a mi lista">+</button></div></div>`;
-  $('#hPlay').onclick = () => openModal(it, { tab: 'trailer' });
+  $('#hPlay').onclick = () => openModal(it, { tab: 'player' });
   $('#hAdd').onclick = () => toggleList(it);
   refreshHeroButtons();
 }

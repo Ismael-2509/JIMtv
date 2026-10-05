@@ -31,7 +31,7 @@ function renderCont() {
   l.forEach((it) => {
     const tag = it.type === 'tv' && it.season ? `<div class="tag">T${it.season} · E${it.episode ?? 1}</div>` : '';
     const c = card(it, 0, tag + `<div class="bar"><i style="width:${Math.max(3, Math.round(it.progress || 0))}%"></i></div>`);
-    c.onclick = () => openModal(it, { tab: 'trailer', start: it.time || 0 });
+    c.onclick = () => openModal(it, { tab: 'player', start: it.time || 0 });
     const rm = document.createElement('button');
     rm.className = 'rm'; rm.textContent = '✕';
     rm.title = rm.ariaLabel = 'Quitar de Continuar viendo';
