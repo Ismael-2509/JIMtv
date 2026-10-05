@@ -1,5 +1,5 @@
 const api = async (url) => {
-  console.log("JIMTV API:", url);
+  console.log("JIMTV API →", url);
 
   const response = await fetch(url);
 
@@ -13,7 +13,11 @@ const api = async (url) => {
 
   const data = await response.json();
 
-  console.log("JIMTV API respuesta:", url, data);
+  console.log(
+    "JIMTV API ←",
+    url,
+    data
+  );
 
   return data;
 };
